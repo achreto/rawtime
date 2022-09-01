@@ -1,7 +1,5 @@
 #![no_std]
 
-extern crate x86;
-
 #[allow(unused_imports)]
 #[macro_use(info, debug)]
 extern crate log;
@@ -16,21 +14,29 @@ use core::fmt;
 use core::ops;
 pub use core::time::Duration;
 
-#[cfg(all(target_arch = "x86_64", target_os = "none"))]
-#[path = "x86_64/mod.rs"]
+#[cfg(target_arch = "x86_64")]
+#[path = "arch/x86_64/mod.rs"]
 pub mod arch;
 
-#[cfg(all(target_arch = "x86_64", target_os = "nrk"))]
-#[path = "nrk/mod.rs"]
+#[cfg(target_arch = "aarch64")]
+#[path = "arch/aarch64/mod.rs"]
 pub mod arch;
 
-#[cfg(all(target_arch = "x86_64", target_os = "redleaf"))]
-#[path = "redleaf/mod.rs"]
-pub mod arch;
+#[cfg(target_family = "none")]
+#[path = "platform/none/mod.rs"]
+pub mod platform;
 
-#[cfg(all(target_arch = "x86_64", target_family = "unix"))]
-#[path = "unix/mod.rs"]
-pub mod arch;
+#[cfg(target_family = "nrk")]
+#[path = "platform/nrk/mod.rs"]
+pub mod platform;
+
+#[cfg(target_family = "readleaf")]
+#[path = "platform/readleaf/mod.rs"]
+pub mod platform;
+
+#[cfg(target_family = "unix")]
+#[path = "platform/unix/mod.rs"]
+pub mod platform;
 
 use arch::{precise_time_ns, wallclock};
 
