@@ -1,4 +1,3 @@
-
 lazy_static! {
     /// TSC Frequency in Hz
     pub static ref TSC_FREQUENCY: u64 = {

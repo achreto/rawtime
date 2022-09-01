@@ -1,5 +1,5 @@
+use crate::arch;
 use crate::DateTime;
-use create::arch;
 
 pub fn wallclock() -> DateTime {
     DateTime {

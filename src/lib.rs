@@ -22,15 +22,15 @@ pub mod arch;
 #[path = "arch/aarch64/mod.rs"]
 pub mod arch;
 
-#[cfg(target_family = "none")]
+#[cfg(target_os = "none")]
 #[path = "platform/none/mod.rs"]
 pub mod platform;
 
-#[cfg(target_family = "nrk")]
+#[cfg(target_os = "nrk")]
 #[path = "platform/nrk/mod.rs"]
 pub mod platform;
 
-#[cfg(target_family = "readleaf")]
+#[cfg(target_os = "readleaf")]
 #[path = "platform/readleaf/mod.rs"]
 pub mod platform;
 

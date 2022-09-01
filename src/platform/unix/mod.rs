@@ -1,7 +1,6 @@
+use crate::arch;
 use crate::DateTime;
 use libc;
-
-use crate::arch;
 
 pub fn wallclock() -> DateTime {
     unsafe {
