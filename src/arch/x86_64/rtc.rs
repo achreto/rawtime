@@ -23,7 +23,7 @@ unsafe fn rtc_read(reg: u8) -> u8 {
     return inb(RTC_DATA);
 }
 
-pub unsafe fn now() -> DateTime {
+unsafe fn get_datetime() -> DateTime {
     while rtc_read(RTC_STATUS_A) & RTC_UIP > 0 {
         core::arch::x86_64::_mm_pause();
     }
@@ -44,4 +44,8 @@ pub unsafe fn now() -> DateTime {
     assert!(dt.mon >= 1 && dt.mon <= 12);
 
     dt
+}
+
+pub unsafe fn now() -> DateTime {
+    unsafe { get_datetime() }
 }

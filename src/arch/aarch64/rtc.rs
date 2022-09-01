@@ -1,6 +1,6 @@
 use crate::DateTime;
 
-pub unsafe fn now() -> DateTime {
+pub fn now() -> DateTime {
     DateTime {
         sec: 1 as u8,
         min: 1 as u8,
