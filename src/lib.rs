@@ -38,7 +38,7 @@ pub mod platform;
 #[path = "platform/unix/mod.rs"]
 pub mod platform;
 
-use arch::{precise_time_ns, wallclock};
+use platform::{precise_time_ns, wallclock};
 
 pub const ONE_GHZ_IN_HZ: u64 = 1_000_000_000;
 
