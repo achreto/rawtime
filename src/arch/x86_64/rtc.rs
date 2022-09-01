@@ -46,6 +46,6 @@ unsafe fn get_datetime() -> DateTime {
     dt
 }
 
-pub unsafe fn now() -> DateTime {
+pub fn now() -> DateTime {
     unsafe { get_datetime() }
 }
