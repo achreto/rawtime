@@ -1,7 +1,6 @@
 use crate::DateTime;
-use create::arch;
 
-pub fn wallclock() -> DateTime {
+pub unsafe fn now() -> DateTime {
     DateTime {
         sec: 1 as u8,
         min: 1 as u8,
@@ -10,8 +9,4 @@ pub fn wallclock() -> DateTime {
         mon: 1 as u8,
         year: 1900 as u64,
     }
-}
-
-pub fn precise_time_ns() -> u64 {
-    arch::tsc::precise_time_ns()
 }
