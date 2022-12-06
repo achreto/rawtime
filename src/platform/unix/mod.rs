@@ -2,6 +2,10 @@ use crate::arch;
 use crate::DateTime;
 use libc;
 
+pub fn determine_cpu_frequency() -> u64 {
+    arch::tsc::determine_cpu_frequency()
+}
+
 pub fn wallclock() -> DateTime {
     unsafe {
         let mut t: libc::time_t = 0;

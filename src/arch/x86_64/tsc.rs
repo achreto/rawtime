@@ -1,7 +1,7 @@
 use super::rtc;
 use crate::ONE_GHZ_IN_HZ;
 
-fn determine_cpu_frequency() -> u64 {
+pub fn determine_cpu_frequency() -> u64 {
     const MHZ_TO_HZ: u64 = 1000000;
     const KHZ_TO_HZ: u64 = 1000;
     let cpuid = x86::cpuid::CpuId::new();
@@ -75,4 +75,9 @@ fn tsc_to_ns(hz: u64) -> u64 {
 #[inline]
 pub fn precise_time_ns() -> u64 {
     unsafe { tsc_to_ns(x86::time::rdtsc()) as u64 }
+}
+
+#[inline]
+pub fn rdtsc() -> u64 {
+    unsafe { x86::time::rdtsc() }
 }
