@@ -1,7 +1,9 @@
 use cortex_a::{asm::barrier, registers::*};
 use tock_registers::interfaces::Readable;
 
-pub fn determine_cpu_frequency() -> u64 {}
+pub fn determine_cpu_frequency() -> u64 {
+    panic!("figure out cpu frequence on aarch64")
+}
 
 lazy_static! {
     /// TSC Frequency in Hz
